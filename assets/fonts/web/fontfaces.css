@@ -1,0 +1,111 @@
+﻿  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/fonts/web/Cormorant-Garamond-italic-500.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: italic;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/fonts/web/Cormorant-Garamond-italic-600.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/fonts/web/Cormorant-Garamond-normal-500.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/fonts/web/Cormorant-Garamond-normal-600.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('assets/fonts/web/Montserrat-normal-300.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/fonts/web/Montserrat-normal-400.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/fonts/web/Montserrat-normal-500.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/fonts/web/Montserrat-normal-600.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('assets/fonts/web/Montserrat-normal-700.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/fonts/web/Playfair-Display-italic-400.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/fonts/web/Playfair-Display-italic-500.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('assets/fonts/web/Playfair-Display-normal-400.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('assets/fonts/web/Playfair-Display-normal-500.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('assets/fonts/web/Playfair-Display-normal-600.ttf') format('truetype');
+  }
