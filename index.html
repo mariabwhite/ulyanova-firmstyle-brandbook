@@ -3031,6 +3031,44 @@
     .concept-card[data-concept="volume"] .crest-feature img { height: auto; max-height: 420px; }
   }
 
+  /* mobile finish: keep controls, captions and artwork inside the viewport */
+  @media (max-width: 640px) {
+    .wrap { padding-left: 16px; padding-right: 16px; }
+    .colophon { flex-wrap: wrap; gap: 8px 16px; letter-spacing: .16em; }
+    .concept-switcher { position: static; width: 100%; flex-wrap: wrap; gap: 6px; padding: 6px; }
+    .concept-tab { flex: 1 1 calc(33.333% - 6px); padding: 9px 8px; }
+    .concept-tab span { white-space: normal; line-height: 1.2; }
+    .concept-topline { gap: 10px; }
+    .concept-title h3 { font-size: clamp(24px, 8vw, 34px); line-height: 1.05; }
+    .concept-title p { overflow-wrap: anywhere; }
+    .concept-item, .concept-logo-carousel, .concept-logo-sequence { min-width: 0; max-width: 100%; }
+    .concept-item:hover { transform: none; }
+    .concept-label { align-items: flex-start; flex-wrap: wrap; }
+    .concept-label span, .concept-section-title span { white-space: normal; overflow-wrap: anywhere; line-height: 1.3; }
+    .concept-section-title { gap: 6px; margin-top: 12px; }
+    .concept-section-title b { font-size: 21px; }
+    .concept-logo-sequence { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .logo-seq-card img { height: 116px; }
+    .concept-logo-shot .mini-cap { align-items: flex-start; flex-direction: column; gap: 3px; }
+    .concept-logo-shot .mini-cap span { white-space: normal; overflow-wrap: anywhere; }
+    .script-mainpick span { transform: none; font-size: clamp(30px, 9vw, 44px); }
+    .image-zoom-frame { max-width: 100%; }
+    .image-zoom-frame img { max-width: calc(100vw - 28px); }
+    .signum-blocks, .signum-block, .signum-rail,
+    .return-rail-wrap, .return-rail, .palette-guide-pair,
+    .application-group, .application-grid, .mediums { min-width: 0; max-width: 100%; }
+    .signum-rail, .return-rail { overflow-x: auto; overflow-y: hidden; }
+    .signum-rail { grid-auto-columns: minmax(178px, 82%); }
+    .signum-rail.hero-rail { grid-auto-columns: minmax(210px, 88%); }
+    .return-rail { grid-auto-columns: minmax(220px, 88%); }
+    .application-group-head { align-items: flex-start; flex-wrap: wrap; }
+    .application-group-head span { white-space: normal; line-height: 1.3; }
+    .return-shot .cap { align-items: flex-start; flex-wrap: wrap; }
+    .return-shot .cap h4 { white-space: normal; overflow-wrap: anywhere; }
+    .signum-block-head { min-width: 0; }
+    .signum-block-head .count { white-space: normal; text-align: right; }
+  }
+
   .concept-logo-sequence {
     grid-column: 1 / -1;
     display: grid;
