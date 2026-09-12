@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8" />
@@ -6,8 +6,27 @@
 <title>Метод Ульяновой · Брендбук · MMXXVI</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Marck+Script&family=Bad+Script&family=Caveat:wght@400;500;600;700&family=Pacifico&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&family=Comforter&family=Comforter+Brush&family=Marck+Script&family=Bad+Script&family=Caveat:wght@400;500;600;700&family=Pacifico&family=Lobster&family=Pattaya&family=Neucha&family=Pangolin&family=Amatic+SC:wght@400;700&family=Shantell+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Spectral:ital,wght@0,400;0,500;1,400;1,500;1,600&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Literata:ital,wght@0,400;0,500;1,400;1,500&family=Ysabeau:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Script Thin Pen';
+    src: url('assets/fonts/ScriptThinPen.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Pushkin';
+    src: url('assets/fonts/Pushkin.ttf') format('truetype');
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Miama';
+    src: url('assets/fonts/miama/miama.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
   :root {
     /* — Stage — */
     --stage:     #00091F;
@@ -1428,7 +1447,7 @@
     grid-auto-flow: column;
     grid-auto-columns: minmax(150px, 16.5%);
     gap: 10px;
-    overflow-x: auto;
+    overflow: visible;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: 2px;
@@ -1509,8 +1528,7 @@
     overscroll-behavior: contain;
     padding: 2px 12px 2px 2px;
     scroll-snap-type: y proximity;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold-hi) rgba(240,216,150,.08);
+    
   }
   #signum .signum-blocks::-webkit-scrollbar { width: 12px; }
   #signum .signum-blocks::-webkit-scrollbar-track {
@@ -1641,7 +1659,7 @@
     grid-auto-flow: column;
     grid-auto-columns: minmax(260px, 31%);
     gap: 10px;
-    overflow-x: auto;
+    overflow: visible;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
     scroll-padding-inline: 2px;
@@ -1789,12 +1807,11 @@
     grid-auto-flow: column;
     grid-auto-columns: minmax(220px, 31%);
     gap: 12px;
-    overflow-x: auto;
+    overflow: visible;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
     padding: 2px 2px 12px;
-    scrollbar-width: thin;
-    scrollbar-color: var(--gold-hi) rgba(240,216,150,.08);
+    
   }
   .return-rail::-webkit-scrollbar { height: 10px; }
   .return-rail::-webkit-scrollbar-track { background: rgba(240,216,150,.055); border: 1px solid rgba(240,216,150,.08); }
@@ -1870,7 +1887,7 @@
   }
   @media (max-width: 980px) {
     .palette-guide-pair { grid-template-columns: 1fr; }
-    .palette-compendium-card .return-rail { overflow-x: auto; }
+    .palette-compendium-card .return-rail { overflow: visible; }
   }
   @media (max-width: 900px) { .return-rail { grid-auto-columns: minmax(190px, 72%); } }
 
@@ -2410,6 +2427,564 @@
       filter: none;
     }
   }
+
+/* data-concepts-css */
+  .concept-board {
+    position: relative;
+    padding: 72px 0 88px;
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    isolation: isolate;
+  }
+  .concept-board::before {
+    content: '';
+    position: absolute;
+    inset: 24px -20px 36px;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 14% 18%, rgba(0,229,255,.16), transparent 34%),
+      radial-gradient(circle at 86% 6%, rgba(255,61,156,.11), transparent 28%),
+      linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.005));
+    border: 1px solid rgba(0,229,255,.12);
+    box-shadow: inset 0 0 60px rgba(0,229,255,.045), 0 30px 110px rgba(0,9,31,.45);
+  }
+  .concept-head {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 24px;
+    align-items: end;
+    margin-bottom: 22px;
+  }
+  .concept-head .kicker {
+    display: inline-flex;
+    color: var(--gold-hi);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .24em;
+    margin-bottom: 10px;
+  }
+  .concept-head h2 {
+    margin: 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 76px);
+    font-weight: 500;
+    line-height: .95;
+    color: var(--cream);
+  }
+  .concept-head h2 em { color: var(--gold-hi); font-style: italic; text-shadow: 0 0 24px rgba(240,216,150,.28); }
+  .concept-head p {
+    margin: 14px 0 0;
+    max-width: 760px;
+    color: var(--muted);
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.65;
+  }
+  .concept-switcher {
+    position: sticky;
+    top: 14px;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border: 1px solid rgba(0,229,255,.18);
+    background: rgba(0, 9, 31, .78);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 18px 60px rgba(0,0,0,.22), 0 0 26px rgba(0,229,255,.08);
+  }
+  .concept-tab {
+    appearance: none;
+    border: 1px solid rgba(240,216,150,.18);
+    background: rgba(255,255,255,.035);
+    color: var(--cream);
+    padding: 10px 12px;
+    min-width: 0;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
+    transition: border-color .24s ease, box-shadow .24s ease, transform .24s ease, background .24s ease;
+  }
+  .concept-tab b {
+    display: block;
+    color: var(--gold-hi);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1;
+  }
+  .concept-tab span {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .concept-tab.is-active,
+  .concept-tab:hover {
+    border-color: rgba(0,229,255,.7);
+    background: linear-gradient(135deg, rgba(0,229,255,.12), rgba(255,61,156,.06));
+    box-shadow: 0 0 22px rgba(0,229,255,.18), inset 0 0 0 1px rgba(240,216,150,.08);
+    transform: translateY(-2px);
+  }
+  .concept-strip {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(86%, 1fr);
+    gap: 18px;
+    overflow: visible;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-behavior: smooth;
+    padding: 4px 4px 18px;
+    
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 46px), transparent 100%);
+  }
+  .concept-strip::-webkit-scrollbar { height: 12px; }
+  .concept-strip::-webkit-scrollbar-track { background: rgba(240,216,150,.055); border: 1px solid rgba(240,216,150,.08); }
+  .concept-strip::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--neon-cyan), var(--gold-hi), var(--neon-magenta)); border: 3px solid #00091F; }
+  .concept-card {
+    scroll-snap-align: start;
+    min-height: 680px;
+    border: 1px solid rgba(240,216,150,.14);
+    background: linear-gradient(155deg, rgba(255,255,255,.045), rgba(0,20,54,.64) 44%, rgba(0,9,31,.9));
+    padding: clamp(16px, 2vw, 24px);
+    box-shadow: 0 32px 90px rgba(0,0,0,.28), inset 0 0 0 1px rgba(0,229,255,.055);
+  }
+  .concept-card:nth-child(1) { --concept-neon: #00E5FF; }
+  .concept-card:nth-child(2) { --concept-neon: #F0D896; }
+  .concept-card:nth-child(3) { --concept-neon: #FF3D9C; }
+  .concept-topline {
+    display: grid;
+    grid-template-columns: auto minmax(0,1fr) auto;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .concept-num {
+    color: var(--gold-hi);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 5vw, 72px);
+    font-style: italic;
+    line-height: .9;
+    text-shadow: 0 0 22px rgba(240,216,150,.34);
+  }
+  .concept-title h3 {
+    margin: 0;
+    color: var(--cream);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3vw, 42px);
+    font-weight: 500;
+  }
+  .concept-title p { margin: 6px 0 0; color: var(--muted); line-height: 1.45; max-width: 820px; }
+  .concept-pill {
+    color: var(--stage);
+    background: linear-gradient(90deg, var(--concept-neon), var(--gold-hi));
+    box-shadow: 0 0 24px color-mix(in srgb, var(--concept-neon), transparent 58%);
+    padding: 9px 12px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .16em;
+    white-space: nowrap;
+    font-weight: 700;
+  }
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 12px;
+  }
+  .concept-item {
+    grid-column: span 3;
+    border: 1px solid rgba(240,216,150,.12);
+    background: rgba(0,9,31,.42);
+    padding: 10px;
+    min-height: 174px;
+    transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+  }
+  .concept-item.big { grid-column: span 6; min-height: 320px; }
+  .concept-item.wide { grid-column: span 6; }
+  .concept-item:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--concept-neon), white 10%); box-shadow: 0 18px 54px rgba(0,0,0,.28), 0 0 20px color-mix(in srgb, var(--concept-neon), transparent 74%); }
+  .concept-item img {
+    display: block;
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    background: radial-gradient(circle at 50% 35%, rgba(255,255,255,.055), rgba(0,20,54,.38) 58%, rgba(0,9,31,.75));
+    cursor: zoom-in;
+  }
+  .concept-item.big img { height: 350px; }
+  .concept-item.wide img { height: 230px; }
+  .concept-label { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; padding-top: 9px; }
+  .concept-label h4 { margin: 0; color: var(--cream); font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 500; }
+  .concept-label span { color: var(--gold-hi); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; }
+  .concept-type, .concept-colors, .concept-icon {
+    display: grid;
+    align-content: center;
+    min-height: 126px;
+    gap: 10px;
+  }
+  .concept-type .sample { color: var(--cream); font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1; }
+  .concept-type .script { font-family: 'Bad Script', cursive; color: var(--neon-cyan); font-size: 28px; text-shadow: 0 0 16px rgba(0,229,255,.34); }
+  .concept-color-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .concept-color-dot { width: 30px; height: 30px; border-radius: 999px; border: 1px solid rgba(255,255,255,.22); box-shadow: 0 0 18px rgba(0,229,255,.12); }
+  .concept-icon svg { width: 72px; height: 72px; filter: drop-shadow(0 0 16px color-mix(in srgb, var(--concept-neon), transparent 45%)); }
+  .concept-hint { margin-top: 14px; color: rgba(244,237,216,.58); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+  @media (max-width: 980px) {
+    .concept-head { grid-template-columns: 1fr; }
+    .concept-switcher { position: relative; top: auto; overflow: visible; }
+    .concept-strip { grid-auto-columns: minmax(92%, 1fr); }
+    .concept-item, .concept-item.big, .concept-item.wide { grid-column: span 6; }
+  }
+  @media (max-width: 640px) {
+    .concept-grid { grid-template-columns: 1fr; }
+    .concept-item, .concept-item.big, .concept-item.wide { grid-column: 1; }
+    .concept-topline { grid-template-columns: 1fr; }
+    .concept-pill { width: fit-content; }
+    .concept-item.big img, .concept-item.wide img, .concept-item img { height: auto; max-height: 320px; }
+  }
+
+/* data-concepts-vertical-override */
+  .concept-strip {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    overflow: visible;
+    scroll-snap-type: none;
+    padding: 4px 0 0;
+    mask-image: none;
+  }
+  .concept-card {
+    scroll-snap-align: none;
+    scroll-margin-top: 96px;
+  }
+  .concept-strip::-webkit-scrollbar { display: none; }
+  .concept-hint { display: none; }
+  @media (max-width: 980px) {
+    .concept-strip { grid-template-columns: 1fr; grid-auto-columns: unset; }
+  }
+
+/* concept 1 typography options */
+  .concept-script-list {
+    display: grid;
+    gap: 8px;
+  }
+  .concept-script-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(240,216,150,.10);
+  }
+  .concept-script-row:last-child { border-bottom: 0; }
+  .concept-script-row strong {
+    color: var(--cream);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .concept-script-row span {
+    color: var(--neon-cyan);
+    font-size: clamp(19px, 2vw, 28px);
+    line-height: 1.1;
+    text-align: right;
+    text-shadow: 0 0 14px rgba(0,229,255,.28);
+  }
+  .script-cormorant { font-family: 'Cormorant Garamond', serif; font-style: normal; font-weight: 600; }
+  .script-lobster { font-family: 'Lobster', cursive; font-weight: 400; }
+  .script-pattaya { font-family: 'Pattaya', cursive; font-weight: 400; }
+  .script-kurale { font-family: 'Kurale', serif; font-weight: 400; }
+  .script-alice { font-family: 'Alice', serif; font-weight: 400; }
+  .script-playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+  .script-lora { font-family: 'Lora', serif; font-style: italic; font-weight: 500; }
+  .script-spectral { font-family: 'Spectral', serif; font-style: italic; font-weight: 500; }
+  .script-caveat { font-family: 'Caveat', cursive; font-weight: 600; }
+  .script-marck { font-family: 'Marck Script', cursive; font-weight: 400; }
+  .script-pacifico { font-family: 'Pacifico', cursive; font-weight: 400; }
+
+  .concept-logo-carousel {
+    grid-column: span 6;
+    border: 1px solid rgba(240,216,150,.12);
+    background: rgba(0,9,31,.42);
+    padding: 10px;
+    min-height: 320px;
+  }
+  .concept-logo-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    overflow: visible;
+    padding: 0;
+  }
+  .concept-logo-shot {
+    border: 1px solid rgba(240,216,150,.10);
+    background: rgba(0,20,54,.42);
+    padding: 8px;
+    min-width: 0;
+  }
+  .concept-logo-shot img {
+    display: block;
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    background: radial-gradient(circle at 50% 38%, rgba(255,255,255,.06), rgba(0,20,54,.34) 58%, rgba(0,9,31,.76));
+    cursor: zoom-in;
+  }
+  .concept-logo-shot.wide { grid-column: auto; }
+  .concept-logo-shot.wide img { height: 170px; }
+  .concept-logo-shot .mini-cap {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: baseline;
+    padding-top: 7px;
+  }
+  .concept-logo-shot .mini-cap b {
+    color: var(--cream);
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .concept-logo-shot .mini-cap span {
+    color: var(--gold-hi);
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .concept-logo-carousel > .concept-label { padding-top: 9px; }
+  @media (max-width: 980px) {
+    .concept-logo-carousel { grid-column: span 6; }
+    .concept-logo-rail { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 640px) {
+    .concept-logo-carousel { grid-column: 1; }
+    .concept-logo-rail { grid-template-columns: 1fr; }
+  }
+
+/* script shortlist 20 */
+  .script-miama { font-family: 'Miama', 'Cormorant Garamond', serif; font-weight: 400; }
+  .script-mainpick span { color: #D4AF6B; font-size: clamp(34px, 4vw, 58px); transform: rotate(-4deg); transform-origin: left center; }
+  .script-mainpick { grid-column: 1 / -1; min-height: 118px; background: linear-gradient(135deg, rgba(0,20,54,.72), rgba(0,9,31,.48)); }
+  .concept-script-wall {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .script-option {
+    min-height: 78px;
+    display: grid;
+    align-content: center;
+    gap: 5px;
+    padding: 10px 12px;
+    border: 1px solid rgba(240,216,150,.12);
+    background: rgba(255,255,255,.025);
+  }
+  .script-option b {
+    color: var(--gold-hi);
+    font-size: 9px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .script-option span {
+    color: var(--cream);
+    font-size: clamp(21px, 2.15vw, 34px);
+    line-height: 1.08;
+    text-shadow: 0 0 16px rgba(0,229,255,.16);
+  }
+  .script-comforter { font-family: 'Comforter', cursive; }
+  .script-comforter-brush { font-family: 'Comforter Brush', cursive; }
+  .script-marck { font-family: 'Marck Script', cursive; }
+  .script-bad { font-family: 'Bad Script', cursive; }
+  .script-pushkin { font-family: 'Pushkin', 'Bad Script', cursive; font-weight: 400; }
+  .script-thin-pen { font-family: 'Script Thin Pen', 'Pushkin', 'Bad Script', cursive; font-weight: 400; }
+  .script-caveat { font-family: 'Caveat', cursive; font-weight: 600; }
+  .script-pacifico { font-family: 'Pacifico', cursive; }
+  .script-lobster { font-family: 'Lobster', cursive; }
+  .script-pattaya { font-family: 'Pattaya', cursive; }
+  .script-neucha { font-family: 'Neucha', cursive; }
+  .script-pangolin { font-family: 'Pangolin', cursive; }
+  .script-amatic { font-family: 'Amatic SC', cursive; font-weight: 700; letter-spacing: .02em; }
+  .script-shantell { font-family: 'Shantell Sans', cursive; font-weight: 500; }
+  .script-cormorant { font-family: 'Cormorant Garamond', serif; font-style: normal; font-weight: 600; }
+  .script-playfair { font-family: 'Playfair Display', serif; font-style: italic; font-weight: 500; }
+  .script-lora { font-family: 'Lora', serif; font-style: italic; font-weight: 500; }
+  .script-spectral { font-family: 'Spectral', serif; font-style: italic; font-weight: 500; }
+  .script-philosopher { font-family: 'Philosopher', serif; font-style: italic; font-weight: 700; }
+  .script-ptserif { font-family: 'PT Serif', serif; font-style: italic; font-weight: 700; }
+  .script-ebgaramond { font-family: 'EB Garamond', serif; font-style: italic; font-weight: 500; }
+  .script-literata { font-family: 'Literata', serif; font-style: italic; font-weight: 500; }
+  @media (max-width: 760px) { .concept-script-wall { grid-template-columns: 1fr; } }
+  .accent-bordeaux {
+    color: #722432;
+    text-shadow: 0 0 18px rgba(114,36,50,.38), 0 0 28px rgba(212,176,106,.16);
+  }
+/* universal image zoom */
+  .image-zoom-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: none;
+    place-items: center;
+    padding: clamp(14px, 3vw, 36px);
+    background: rgba(0, 8, 28, .88);
+    backdrop-filter: blur(16px);
+  }
+  .image-zoom-overlay.open { display: grid; }
+  .image-zoom-frame {
+    position: relative;
+    max-width: min(96vw, 1500px);
+    max-height: 92vh;
+    border: 1px solid rgba(240,216,150,.24);
+    background: rgba(0,9,31,.78);
+    box-shadow: 0 28px 90px rgba(0,0,0,.58), 0 0 44px rgba(0,229,255,.16);
+  }
+  .image-zoom-frame img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 96vw;
+    max-height: 88vh;
+    object-fit: contain;
+  }
+  .image-zoom-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(240,216,150,.35);
+    border-radius: 999px;
+    background: rgba(0,9,31,.82);
+    color: var(--cream);
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+/* concept 3 volume layout */
+  .concept-section-title {
+    grid-column: 1 / -1;
+    margin: 16px 0 2px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 14px;
+    border-top: 1px solid rgba(240,216,150,.14);
+    padding-top: 14px;
+  }
+  .concept-section-title b {
+    color: var(--cream);
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(19px, 2vw, 27px);
+    font-weight: 500;
+  }
+  .concept-section-title span {
+    color: var(--gold-hi);
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .concept-item.hero-wide { grid-column: 1 / -1; }
+  .concept-item.hero-wide img { height: min(58vw, 560px); object-fit: contain; }
+  .concept-item.tall img { height: 360px; }
+  .concept-item.landscape { grid-column: span 6; }
+  .concept-item.landscape img { height: 260px; }
+  .concept-item.square img { height: 250px; }
+  .concept-card[data-concept="volume"] .concept-item {
+    background: linear-gradient(145deg, rgba(0,20,54,.62), rgba(0,9,31,.44));
+  }
+  @media (max-width: 980px) {
+    .concept-item.landscape { grid-column: span 6; }
+    .concept-item.hero-wide img { height: auto; max-height: 520px; }
+  }
+  @media (max-width: 640px) {
+    .concept-section-title { display: grid; }
+    .concept-item.landscape, .concept-item.hero-wide { grid-column: 1; }
+    .concept-item.tall img, .concept-item.landscape img, .concept-item.square img { height: auto; max-height: 360px; }
+  }
+
+  .concept-card[data-concept="volume"] .crest-feature img {
+    height: 390px;
+    background: radial-gradient(circle at 50% 35%, rgba(236,200,104,.10), rgba(0,20,54,.42) 58%, rgba(0,9,31,.78));
+  }
+  .concept-card[data-concept="volume"] .crest-feature {
+    border-color: rgba(236,200,104,.22);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.025), 0 0 26px rgba(236,200,104,.08);
+  }
+  @media (max-width: 640px) {
+    .concept-card[data-concept="volume"] .crest-feature img { height: auto; max-height: 420px; }
+  }
+
+  .concept-logo-sequence {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid rgba(240,216,150,.12);
+    background: linear-gradient(145deg, rgba(0,20,54,.52), rgba(0,9,31,.36));
+    overflow: visible;
+  }
+  .logo-seq-card {
+    min-width: 0;
+    display: grid;
+    gap: 7px;
+    align-content: start;
+    padding: 8px;
+    border: 1px solid rgba(240,216,150,.10);
+    background: rgba(0,9,31,.40);
+  }
+  .logo-seq-card.lead { border-color: rgba(236,200,104,.34); background: rgba(14,27,68,.70); }
+  .logo-seq-card.service { background: rgba(0,34,76,.38); }
+  .logo-seq-card.alt { opacity: .82; }
+  .logo-seq-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    cursor: zoom-in;
+    background: radial-gradient(circle at 50% 35%, rgba(236,200,104,.09), rgba(0,20,54,.30) 56%, rgba(0,9,31,.66));
+  }
+  .logo-seq-card b {
+    display: block;
+    color: var(--cream);
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .logo-seq-card span {
+    display: block;
+    margin-top: 3px;
+    color: var(--gold-hi);
+    font-size: 9px;
+    letter-spacing: .10em;
+    text-transform: uppercase;
+    line-height: 1.15;
+  }
+  @media (max-width: 980px) {
+    .concept-logo-sequence {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid rgba(240,216,150,.12);
+    background: linear-gradient(145deg, rgba(0,20,54,.52), rgba(0,9,31,.36));
+    overflow: visible;
+  }
+
+  .palette-reference figcaption {
+    padding: 10px 12px 0;
+    color: var(--gold-hi);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .blue-bg-variants { margin-top: 12px; }
 </style>
 </head>
 <body>
@@ -2462,55 +3037,117 @@
     <div><span class="handwritten">Учиться может быть просто!</span></div>
   </section>
 
-  <div class="rule"></div>\n<!-- ============================================
+  <div class="rule"></div>
+<!-- ============================================
        I — Logo
   ============================================ -->
-  <section class="chapter" id="signum">
-    <header class="chapter-head">
-      <div class="chapter-num">Ⅰ</div>
+  
+  <section class="concept-board" id="concepts">
+    <div class="concept-head">
       <div>
-        <span class="chapter-eyebrow">Signum · Гербовые версии и прогоны</span>
-        <div class="chapter-titlewrap">
-          <h2 class="chapter-title">Герб &nbsp;— <em>медальон</em></h2>
-          <p class="chapter-lede">Круглый золотой медальон с монограммой «МУ», лавром, книгой и звездой. Пять базовых версий и полный набор прогонов для разных сценариев.</p>
-        </div>
+        <span class="kicker">Tres conceptus · структура выбора</span>
+        <h2>Три <em>концепта</em></h2>
+        <p>Каждый вариант показан одинаково: логотип, визитка, бланк, конверт, шрифт, цвета, паттерн и иконка. Переключение сверху, все три концепта идут один под другим.</p>
       </div>
-    </header>
-        <div class="signum-blocks">
-      <div class="signum-block">
-        <div class="signum-block-head"><div class="num">Ⅰ</div><div><h3>Главный lockup</h3><p>Первый блок — крупные горизонтальные композиции для обложки, первого экрана, презентации и главной заставки. Здесь важен весь знак целиком: герб, название и статус онлайн-школы.</p></div><span class="count">2 files</span></div>
-        <div class="signum-rail hero-rail">
-          <div class="signum-shot wide-sheet"><img src="assets/signum-blocks-2026-09-11/block-01/01-color-matrix.png" alt="Лист цветовых версий герба Метод Ульяновой"><div class="cap"><h4>Color Matrix</h4><span>Десять цветовых версий одним листом.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-01/02-primary-lockup.png" alt="Главный широкий lockup Метод Ульяновой"><div class="cap"><h4>Primary Lockup</h4><span>Основная широкая версия.</span></div></div>
-        </div>
+      <div class="concept-switcher" aria-label="Переключение концептов">
+        <button class="concept-tab is-active" type="button" data-concept-target="concept-1"><b>Ⅰ</b><span>Лёгкий</span></button>
+        <button class="concept-tab" type="button" data-concept-target="concept-2"><b>Ⅱ</b><span>Плоский</span></button>
+        <button class="concept-tab" type="button" data-concept-target="concept-3"><b>Ⅲ</b><span>Объёмный</span></button>
       </div>
-      <div class="signum-block">
-        <div class="signum-block-head"><div class="num">Ⅱ</div><div><h3>Гербовые версии</h3><p>Второй блок — полный ряд гербовых версий из утверждённого набора.</p></div><span class="count">10 files</span></div>
-        <div class="signum-rail">          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/01-green-gold.png" alt="Green Gold I"><div class="cap"><h4>Green Gold I</h4><span>Зелёно-золотая версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/02-red-alt.png" alt="Red Alt"><div class="cap"><h4>Red Alt</h4><span>Красная парадная версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/03-silver.png" alt="Silver"><div class="cap"><h4>Silver</h4><span>Серебряная версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/04-red-print.png" alt="Red Print"><div class="cap"><h4>Red Print</h4><span>Красная печатная версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/05-green-print.png" alt="Green Print"><div class="cap"><h4>Green Print</h4><span>Зелёная печатная версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/06-violet-alt.png" alt="Violet Alt"><div class="cap"><h4>Violet Alt</h4><span>Фиолетовая версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/07-primary-lockup.png" alt="Primary Lockup"><div class="cap"><h4>Primary Lockup</h4><span>Полная версия с названием.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/08-green-gold-alt.png" alt="Green Gold II"><div class="cap"><h4>Green Gold II</h4><span>Вторая зелёно-золотая версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/09-violet-print.png" alt="Violet Print"><div class="cap"><h4>Violet Print</h4><span>Вторая фиолетовая версия.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-02/10-primary-lockup-alt.png" alt="Primary Lockup II"><div class="cap"><h4>Primary Lockup II</h4><span>Вторая полная версия с названием.</span></div></div>
+    </div>
+    <div class="concept-strip" data-concept-strip>
+                              <article class="concept-card" id="concept-1">
+        <div class="concept-topline"><div class="concept-num">Ⅰ</div><div class="concept-title"><h3>Современный облегчённый</h3><p>Первый вариант: лёгкий логотип, синий/голубой воздух, золото как акцент и чистая деловая подача. Визитку из другой серии убрали.</p></div><span class="concept-pill">modern light</span></div>
+        <div class="concept-grid">
+          <div class="concept-item big"><img src="assets/concepts-2026-09-12/concept-01/01-logo.webp" alt="Концепт 1 главный знак"><div class="concept-label"><h4>Логотип</h4><span>главный вариант</span></div></div>
+          <div class="concept-item big"><img src="assets/concepts-2026-09-12/concept-01/05-logo-light-crest.png" alt="Концепт 1 логотип на светлом фоне"><div class="concept-label"><h4>Логотип</h4><span>light</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-01/06-logo-dark-crest.png" alt="Концепт 1 логотип на синем фоне"><div class="concept-label"><h4>Логотип</h4><span>navy</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-01/03-letterhead.png" alt="Концепт 1 бланк"><div class="concept-label"><h4>Бланк</h4><span>деловой лист</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-01/04-envelope.png" alt="Концепт 1 конверт"><div class="concept-label"><h4>Конверт</h4><span>фирменный комплект</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-01/07-leaf-pattern-board.png" alt="Концепт 1 паттерн с листьями"><div class="concept-label"><h4>Паттерн</h4><span>лист / тон / подтон</span></div></div>
+          <div class="concept-item wide"><div class="concept-type"><div style="display:grid;gap:10px;">
+            <div class="concept-script-row"><strong>Cormorant Garamond</strong><span class="script-cormorant">МЕТОД УЛЬЯНОВОЙ</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:600;color:var(--cream);letter-spacing:0;">Montserrat</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.55;color:var(--muted);">Regular / Medium / SemiBold — служебный текст, подписи, контакты, карточки курсов, мелкая типографика.</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.65;color:var(--gold-hi);letter-spacing:.28em;text-transform:uppercase;">Знания сегодня — уверенность завтра</div>
+            <div class="concept-script-row"><strong>Pushkin</strong><span class="script-pushkin">Больше, чем уроки!</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:11px;line-height:1.45;color:var(--muted);">Монограмма МУ — часть готового знака, её не набираем текстом.</div>
+          </div></div><div class="concept-label"><h4>Шрифты</h4><span>Cormorant / Montserrat / Pushkin</span></div></div>
+          <div class="concept-item"><div class="concept-type"><div class="sample" style="font-family:'Montserrat', sans-serif; font-size:34px; font-weight:600; letter-spacing:0;">Aa</div><div style="font-family:'Montserrat', sans-serif; color:var(--muted); font-size:13px; line-height:1.55;">Эффективные авторские методики<br>15 уроков · 35 занятий · ОГЭ/ЕГЭ</div></div><div class="concept-label"><h4>Основной текст</h4><span>Montserrat</span></div></div>
+          <div class="concept-item"><div class="concept-colors"><div class="concept-color-row"><span class="concept-color-dot" style="background:#0E1B44"></span><span class="concept-color-dot" style="background:#A7C8F0"></span><span class="concept-color-dot" style="background:#D4AF6B"></span><span class="concept-color-dot" style="background:#F7F4EC"></span></div></div><div class="concept-label"><h4>Цвета</h4><span>navy/cyan/gold</span></div></div>
         </div>
-      </div>
-      <div class="signum-block">
-        <div class="signum-block-head"><div class="num">Ⅲ</div><div><h3>Мягкие и монохромные</h3><p>Третий блок — монохром, печать, фольга, штамп и мягкие вспомогательные версии.</p></div><span class="count">7 files</span></div>
-        <div class="signum-rail">
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/01-mono-navy.png" alt="Mono Navy"><div class="cap"><h4>Mono Navy</h4><span>Строгая монохромная версия на navy.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/02-soft-kids.png" alt="Soft Kids"><div class="cap"><h4>Soft Kids</h4><span>Мягкая версия для младшей аудитории.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/03-flat-gold.png" alt="Flat Gold"><div class="cap"><h4>Flat Gold</h4><span>Плоское золото для печати и фольги.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/04-parade-gold.png" alt="Parade Gold"><div class="cap"><h4>Parade Gold</h4><span>Парадный золотой вариант.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/05-blue-gold.png" alt="Blue Gold"><div class="cap"><h4>Blue Gold</h4><span>Синий знак с золотой пластикой.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/06-foil-mark.png" alt="Foil Mark"><div class="cap"><h4>Foil Mark</h4><span>Вариант под тиснение и штамп.</span></div></div>
-          <div class="signum-shot"><img src="assets/signum-blocks-2026-09-11/block-03/07-cream-mark.png" alt="Cream Mark"><div class="cap"><h4>Cream Mark</h4><span>Светлая спокойная версия.</span></div></div>
+      </article>
+                  <article class="concept-card" id="concept-2">
+        <div class="concept-topline"><div class="concept-num">Ⅱ</div><div class="concept-title"><h3>Плоский логотип</h3><p>Второй вариант: плоский логотип в золоте, серебре и цвете; веточка/лавр хорошо видны на деловом комплекте.</p></div><span class="concept-pill">flat logo</span></div>
+        <div class="concept-grid">
+          <div class="concept-item big"><img src="assets/concepts-2026-09-12/concept-02/00-concept-overview.png" alt="Концепт 2 общий лист носителей"><div class="concept-label"><h4>Общий лист</h4><span>визитка / бланк / конверт</span></div></div>
+
+          <div class="concept-logo-carousel">
+            <div class="concept-logo-rail">
+              <div class="concept-logo-shot wide"><img src="assets/concepts-2026-09-12/concept-02/01-flat-color-matrix.png" alt="Концепт 2 Color Matrix"><div class="mini-cap"><b>Color Matrix</b><span>лист цветовых версий</span></div></div>
+              <div class="concept-logo-shot wide"><img src="assets/concepts-2026-09-12/concept-02/02-flat-primary-pair.png" alt="Концепт 2 Primary Pair"><div class="mini-cap"><b>Primary Pair</b><span>основной лист</span></div></div>
+              <div class="concept-logo-shot"><img src="assets/concepts-2026-09-12/concept-02/03-flat-navy.png" alt="Концепт 2 Navy Flat"><div class="mini-cap"><b>Navy Flat</b><span>плоский navy</span></div></div>
+              <div class="concept-logo-shot"><img src="assets/concepts-2026-09-12/concept-02/09-flat-blue.png" alt="Концепт 2 Blue Flat"><div class="mini-cap"><b>Blue Flat</b><span>синий</span></div></div>
+            </div>
+            <div class="concept-label"><h4>Логотипы</h4><span>4 flat files · без дублей</span></div>
+          </div>
+          <div class="concept-item big"><img src="assets/concepts-2026-09-12/concept-02/11-business-card.png" alt="Концепт 2 визитка"><div class="concept-label"><h4>Визитка</h4><span>веточка</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-02/12-letterhead.png" alt="Концепт 2 бланк"><div class="concept-label"><h4>Бланк</h4><span>веточка</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-02/13-envelope.png" alt="Концепт 2 конверт"><div class="concept-label"><h4>Конверт</h4><span>веточка</span></div></div>
+          <div class="concept-item wide"><div class="concept-type"><div style="display:grid;gap:10px;">
+            <div class="concept-script-row"><strong>Cormorant Garamond</strong><span class="script-cormorant">МЕТОД УЛЬЯНОВОЙ</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:600;color:var(--cream);letter-spacing:0;">Montserrat</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.55;color:var(--muted);">Regular / Medium — онлайн-школа, контакты, подписи, бланк, конверт, вся служебная типографика.</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.65;color:var(--gold-hi);letter-spacing:.24em;text-transform:uppercase;">Люди · идеи · знания · большее будущее</div>
+            <div class="concept-script-row"><strong>Pushkin</strong><span class="script-pushkin">Больше, чем уроки!</span></div>
+          </div></div><div class="concept-label"><h4>Шрифты</h4><span>Cormorant / Montserrat / Pushkin</span></div></div>
+          <div class="concept-item wide"><div class="concept-colors"><div class="concept-color-row"><span class="concept-color-dot" style="background:#0F2747" title="#0F2747"></span><span class="concept-color-dot" style="background:#722432" title="#722432"></span><span class="concept-color-dot" style="background:#8EA3C1" title="#8EA3C1"></span><span class="concept-color-dot" style="background:#D4B06A" title="#D4B06A"></span><span class="concept-color-dot" style="background:#FAF0ED" title="#FAF0ED"></span></div></div><div class="concept-label"><h4>Цвета</h4><span>navy / bordeaux / blue / gold / ivory</span></div></div>
+          <div class="concept-item wide"><img src="assets/concepts-2026-09-12/concept-02/14-color-pattern-board.png" alt="Концепт 2 цветовой паттерн"><div class="concept-label"><h4>Цветовой паттерн</h4><span>веточка / палитра</span></div></div>
         </div>
-      </div>    </div>
-    
+      </article>
+                        <article class="concept-card" id="concept-3" data-concept="volume">
+        <div class="concept-topline"><div class="concept-num">Ⅲ</div><div class="concept-title"><h3>Объёмный логотип</h3><p>Третий вариант: сначала показываем жизнь бренда — мерч, открытки, карточки, бумагу и упаковку. Все версии логотипа собраны ниже одним блоком, без смешивания с носителями.</p></div><div class="concept-pill">3D logo</div></div>
+        <div class="concept-grid">
+                    <div class="concept-section-title"><b>Новые материалы</b><span>2 файла · проверить стиль</span></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/26-new-material-01.png" alt="Новый материал 1"><div class="concept-label"><h4>Новый материал I</h4><span>добавлено</span></div></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/27-new-material-02.png" alt="Новый материал 2"><div class="concept-label"><h4>Новый материал II</h4><span>добавлено</span></div></div>
+<div class="concept-item hero-wide"><img src="assets/concepts-2026-09-12/concept-03/13-premium-horizontal-05.png" alt="Концепт 3 большой мерч и носители"><div class="concept-label"><h4>Большой мерч</h4><span>главный визуал</span></div></div>
+
+          <div class="concept-section-title"><b>Мерч, открытки, карточки</b><span>носители сначала</span></div>
+          <div class="concept-item tall"><img src="assets/concepts-2026-09-12/concept-03/05-premium-vertical-01.png" alt="Вертикальный носитель концепта 3"><div class="concept-label"><h4>Вертикальный носитель</h4><span>premium</span></div></div>
+          <div class="concept-item tall"><img src="assets/concepts-2026-09-12/concept-03/06-premium-vertical-02.png" alt="Вертикальная карточка концепта 3"><div class="concept-label"><h4>Карточка</h4><span>detail</span></div></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/07-premium-horizontal-01.png" alt="Горизонтальная открытка концепта 3"><div class="concept-label"><h4>Открытка</h4><span>wide</span></div></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/08-premium-horizontal-02.png" alt="Горизонтальная карточка концепта 3"><div class="concept-label"><h4>Карточка</h4><span>wide</span></div></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/09-premium-horizontal-03.png" alt="Конверт концепта 3"><div class="concept-label"><h4>Конверт</h4><span>paper</span></div></div>
+          <div class="concept-item landscape"><img src="assets/concepts-2026-09-12/concept-03/12-premium-horizontal-04.png" alt="Деловой комплект концепта 3"><div class="concept-label"><h4>Деловой комплект</h4><span>paper set</span></div></div>
+          <div class="concept-item square"><img src="assets/concepts-2026-09-12/concept-03/10-premium-square-01.png" alt="Квадратный носитель концепта 3"><div class="concept-label"><h4>Квадратный носитель</h4><span>social</span></div></div>
+          <div class="concept-item square"><img src="assets/concepts-2026-09-12/concept-03/11-premium-square-02.png" alt="Одежда концепта 3"><div class="concept-label"><h4>Одежда</h4><span>мерч</span></div></div>
+          <div class="concept-item square"><img src="assets/concepts-2026-09-12/concept-03/14-premium-square-03.png" alt="Social карточка концепта 3"><div class="concept-label"><h4>Social</h4><span>card</span></div></div>
+          <div class="concept-item square"><img src="assets/concepts-2026-09-12/concept-03/15-premium-square-04.png" alt="Мерч сет концепта 3"><div class="concept-label"><h4>Мерч</h4><span>set</span></div></div>
+
+          <div class="concept-section-title"><b>Логотипы</b><span>7 файлов · порядок от клиента</span></div>
+          <div class="concept-logo-sequence compact">            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-01.png" alt="Ⅰ · Основной"><div><b>Ⅰ · Основной</b><span>Clean</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-02.png" alt="Ⅱ · Бордо"><div><b>Ⅱ · Бордо</b><span>Bordeaux</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-03.png" alt="Ⅲ · Зелёный"><div><b>Ⅲ · Зелёный</b><span>Green</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-04.png" alt="Ⅳ · Золото"><div><b>Ⅳ · Золото</b><span>Gold</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-05.png" alt="Ⅴ · Фиолетовый"><div><b>Ⅴ · Фиолетовый</b><span>Violet</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-06.png" alt="Ⅵ · Синий"><div><b>Ⅵ · Синий</b><span>Blue</span></div></div>
+            <div class="logo-seq-card"><img src="assets/concepts-2026-09-12/concept-03/logo-line-07.png" alt="Ⅶ · Светлый"><div><b>Ⅶ · Светлый</b><span>Light</span></div></div>
+          
+          </div>
+          <div class="concept-section-title"><b>Шрифты и палитра</b><span>после носителей и логотипов</span></div>
+          <div class="concept-item wide"><div class="concept-type"><div style="display:grid;gap:10px;">
+            <div class="concept-script-row"><strong>Cormorant Garamond</strong><span class="script-cormorant">МЕТОД УЛЬЯНОВОЙ</span></div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:30px;font-weight:600;color:var(--cream);letter-spacing:0;">Montserrat</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.55;color:var(--muted);">Regular / Medium — онлайн-школа, контакты, подписи, бланк, конверт, вся служебная типографика.</div>
+            <div style="font-family:'Montserrat',sans-serif;font-size:12px;line-height:1.65;color:var(--gold-hi);letter-spacing:.24em;text-transform:uppercase;">Люди · идеи · знания · большее будущее</div>
+            <div class="concept-script-row"><strong>Pushkin</strong><span class="script-pushkin">Больше, чем уроки!</span></div>
+          </div></div><div class="concept-label"><h4>Шрифты</h4><span>Cormorant / Montserrat / Pushkin</span></div></div>
+          <div class="concept-item hero-wide"><img src="assets/concepts-2026-09-12/concept-03/25-color-palette-board.png" alt="Цветовая палитра третьего концепта"><div class="concept-label"><h4>Цветовая палитра</h4><span>navy / royal blue / violet / gold / ivory / bordeaux</span></div></div>
+        </div>
+      </article>
+    </div>
+    <p class="concept-hint">Нажмите Ⅰ / Ⅱ / Ⅲ, чтобы перейти к нужному концепту.</p>
   </section>
 
   <div class="rule"></div>
@@ -2525,13 +3162,17 @@
         <span class="chapter-eyebrow">Chromata · Шесть цветов бренда</span>
         <div class="chapter-titlewrap">
           <h2 class="chapter-title">Цветовая <em>палитра</em></h2>
-          <p class="chapter-lede">Ink Navy как основа, бронза и золото — благородство герба, три неона — инновация, движение, энергия. Белого нет: cream заменяет.</p>
+          <p class="chapter-lede">Ink Navy как основа, бронза и золото — благородство логотипа, три неона — инновация, движение, энергия. Белого нет: cream заменяет. Классика держит большую площадь, неон работает только как точный сигнал: CTA, тонкая линия, digital-акцент.</p>
         </div>
       </div>
     </header>
     <div class="palette-guide-pair">
       <figure class="palette-reference">
         <img src="assets/palette-reference/palette-neon-board.png" alt="Цветовая палитра, шрифты и фирменные иконки Метод Ульяновой">
+      </figure>
+      <figure class="palette-reference blue-bg-variants">
+        <img src="assets/palette-reference/blue-background-variants.png" alt="Варианты голубого фона Метод Ульяновой">
+        <figcaption>Варианты голубого фона · 10 оттенков для светлых носителей</figcaption>
       </figure>
       <div class="return-rail-wrap palette-compendium-card" data-returned-palette>
         <div class="return-rail-head"><h3>Быстрый гайд</h3><span>Compendium · 1 file</span></div>
@@ -2649,168 +3290,6 @@
   </section>
 
   <div class="rule"></div>
-
-  <!-- ============================================
-       III — Typography
-  ============================================ -->
-  <section class="chapter" id="typography">
-    <header class="chapter-head">
-      <div class="chapter-num">Ⅲ</div>
-      <div>
-        <span class="chapter-eyebrow">Litterae · Четыре шрифта</span>
-        <div class="chapter-titlewrap">
-          <h2 class="chapter-title">Типогра<em>фика</em></h2>
-          <p class="chapter-lede">Playfair держит статус. Cormorant Italic — вензель для «МУ». Montserrat — рабочий текст. Bad Script — рукописный акцент для слоганов.</p>
-        </div>
-      </div>
-    </header>
-
-    <div class="type-grid">
-      <div class="type-card">
-        <span class="idx">Ⅰ</span>
-        <p class="aa serif">Aa</p>
-        <div class="meta">
-          <p class="fname">Playfair Display</p>
-          <p class="frole">Display · Заголовки</p>
-          <p class="weights"><b>500</b> · 600 · italic</p>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <span class="idx">Ⅱ</span>
-        <p class="aa italic">Aa</p>
-        <div class="meta">
-          <p class="fname">Cormorant Italic</p>
-          <p class="frole">Vensel · МУ · Акценты</p>
-          <p class="weights"><b>600 italic</b> · 500 italic</p>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <span class="idx">Ⅲ</span>
-        <p class="aa sans">Aa</p>
-        <div class="meta">
-          <p class="fname">Montserrat</p>
-          <p class="frole">Body · UI</p>
-          <p class="weights">300 · 400 · <b>500</b> · 600 · 700</p>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <span class="idx">Ⅳ</span>
-        <p class="aa hand">Aa</p>
-        <div class="meta">
-          <p class="fname">Bad Script</p>
-          <p class="frole">Каллиграфия · Слоганы</p>
-          <p class="weights"><b>Regular 400</b> · рукопись</p>
-          <span class="caveat">Учиться может быть просто!</span>
-        </div>
-      </div>
-    </div>
-    <!-- Handwritten comparison — новые кандидаты -->
-    <div class="handwriting-panel">
-      <div class="handwriting-panel-head">
-        <div>
-          <span class="chapter-eyebrow" style="margin-bottom: 8px;">Handwriting · новые варианты</span>
-          <h3>Рукописный акцент без детскости</h3>
-        </div>
-        <p>Рекомендую Bad Script: живой кириллический росчерк, мягкий и не спорит с премиальным гербом.</p>
-      </div>
-      <div class="hw-grid">
-        <div class="hw-card bad selected">
-          <span class="badge">рекомендую</span>
-          <p class="sample">Учиться может быть просто!</p>
-          <div class="meta"><strong>Bad Script</strong><span>живой росчерк · мягкая каллиграфия</span></div>
-        </div>
-        <div class="hw-card caveat">
-          <span class="badge">альтернатива</span>
-          <p class="sample">Учиться может быть просто!</p>
-          <div class="meta"><strong>Caveat</strong><span>человечный почерк · дружелюбнее</span></div>
-        </div>
-        <div class="hw-card pacifico">
-          <span class="badge">смелее</span>
-          <p class="sample">Учиться может быть просто!</p>
-          <div class="meta"><strong>Pacifico</strong><span>плакатный жест · только крупно</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-<!-- ============================================
-       IV — Applicata · Мерч и конверты
-  ============================================ -->
-  <section class="chapter">
-    <header class="chapter-head">
-      <div class="chapter-num">Ⅳ</div>
-      <div>
-        <span class="chapter-eyebrow">Applicata · Как это выглядит в жизни</span>
-        <div class="chapter-titlewrap">
-          <h2 class="chapter-title">На <em>носителях</em></h2>
-          <p class="chapter-lede">Одежда, мерч и конверты: только нужные носители, без лишних презентационных блоков.</p>
-        </div>
-      </div>
-    </header>
-
-    <div class="mediums">
-      <div class="figure span-3 tall n-cyan">
-        <div class="carousel" data-carousel>
-          <img class="active" src="assets/mockups-2026-09-11/apparel-01-hoodie-tee-cap-box.png" alt="Худи, футболка, кепка + фирменная коробка">
-          <img src="assets/mockups-2026-09-11/apparel-02-uniform-bag.png" alt="Школьная форма, рюкзак и монограмма-платок">
-          <div class="dots" data-dots></div>
-        </div>
-        <div class="cap"><h5>Vestis · Мерч</h5><span class="idx">Ⅰ</span></div>
-        <div class="cap-full">Худи <b>Ink Navy</b> с cream-медальоном и рукописным «Знания меняют будущее!». Футболка cream с caveat-слоганом. Кепка navy с монограммой МУ. Второй слайд — школьная форма и брендированный рюкзак с монограммой. Тона тканей — только navy или cream, никаких светло-серых промежутков.</div>
-      </div>
-
-      <div class="figure span-3 tall n-orange">
-        <div class="carousel" data-carousel>
-          <img class="active" src="assets/mockups-2026-09-11/paper-01-envelope-gold-emboss.png" alt="Navy-конверт с золотым тиснением герба">
-          <img src="assets/mockups-2026-09-11/paper-02-folder-more-than-lessons.png" alt="Папка «Больше, чем уроки»">
-          <img src="assets/mockups-2026-09-11/paper-03-folder-more-than-knowledge.png" alt="Папка «Больше, чем знания»">
-          <img src="assets/mockups-2026-09-11/paper-04-letterhead.png" alt="Фирменный бланк с гербом">
-          <img src="assets/mockups-2026-09-11/paper-05-set-envelope-notebook-folder.png" alt="Комплект: конверт, блокнот, папка, бланк">
-          <img src="assets/mockups-2026-09-11/paper-06-business-cards-classic.png" alt="Визитки classic">
-          <img src="assets/mockups-2026-09-11/paper-07-business-cards-full-info.png" alt="Визитки с полными контактами">
-          <img src="assets/mockups-2026-09-11/paper-08-notebook.png" alt="Фирменный блокнот navy">
-          <div class="dots" data-dots></div>
-        </div>
-        <div class="cap"><h5>Epistula · Конверт</h5><span class="idx">Ⅲ</span></div>
-        <div class="cap-full">Крафт-конверт navy с bronze-медальоном. Внутри — приглашение или бумажный отчёт для родителя. Слоган «Больше, чем уроки!» — рукописно, magenta-neon, только на клапане. Карусель показывает всю бумажную линейку: конверт, две папки, бланк, комплект, две версии визиток, блокнот.</div>
-      </div>
-    </div>`r`n
-    <div class="application-set" data-returned-applications>
-      <div class="application-group">
-        <div class="application-group-head"><h3>Направления</h3><span>4 files · витрина курсов</span></div>
-        <div class="application-grid">
-          <div class="return-shot hero-wide no-stretch"><img src="assets/applications-complete-2026-09-11/01-directions-triptych.png" alt="Три направления школы"><div class="cap"><h4>Directions Triptych</h4><span>Ⅰ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/02-course-wide-01.png" alt="Горизонтальный носитель курса"><div class="cap"><h4>Course Wide I</h4><span>Ⅱ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/03-course-wide-02.png" alt="Горизонтальный носитель курса"><div class="cap"><h4>Course Wide II</h4><span>Ⅲ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/04-course-wide-03.png" alt="Горизонтальный носитель курса"><div class="cap"><h4>Course Wide III</h4><span>Ⅳ</span></div></div>
-        </div>
-      </div>
-      <div class="application-group">
-        <div class="application-group-head"><h3>Паттерн: тон и подтон</h3><span>4 files · без растяжения</span></div>
-        <p class="application-note">Тон — основной navy/gold-контраст. Подтон — тише и глубже: под бумагу, конверты, папки и внутренние носители.</p>
-        <div class="application-grid">
-          <div class="return-shot tall no-stretch"><img src="assets/applications-complete-2026-09-11/06-pattern-tone-vertical.png" alt="Паттерн тон вертикальный"><div class="cap"><h4>Tonus · vertical</h4><span>Ⅰ</span></div></div>
-          <div class="return-shot tall no-stretch"><img src="assets/applications-complete-2026-09-11/07-pattern-undertone-vertical.png" alt="Паттерн подтон вертикальный"><div class="cap"><h4>Subtonus · vertical</h4><span>Ⅱ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/08-pattern-tone-wide.png" alt="Паттерн тон горизонтальный"><div class="cap"><h4>Tonus · wide</h4><span>Ⅲ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/09-pattern-undertone-wide.png" alt="Паттерн подтон горизонтальный"><div class="cap"><h4>Subtonus · wide</h4><span>Ⅳ</span></div></div>
-        </div>
-      </div>
-      <div class="application-group">
-        <div class="application-group-head"><h3>Бумага, мерч, одежда</h3><span>7 files · полный комплект</span></div>
-        <div class="application-grid">
-          <div class="return-shot square no-stretch"><img src="assets/applications-complete-2026-09-11/05-square-cover.png" alt="Квадратный носитель"><div class="cap"><h4>Cover Square</h4><span>Ⅰ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/10-stationery-wide.png" alt="Фирменная бумага"><div class="cap"><h4>Stationery Wide</h4><span>Ⅱ</span></div></div>
-          <div class="return-shot square no-stretch"><img src="assets/applications-complete-2026-09-11/11-stationery-square.png" alt="Фирменная бумага квадрат"><div class="cap"><h4>Stationery Square</h4><span>Ⅲ</span></div></div>
-          <div class="return-shot square no-stretch"><img src="assets/applications-complete-2026-09-11/12-folder-square.png" alt="Папка"><div class="cap"><h4>Folder</h4><span>Ⅳ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/13-uniform-wide.png" alt="Одежда и аксессуары"><div class="cap"><h4>Uniform</h4><span>Ⅴ</span></div></div>
-          <div class="return-shot wide no-stretch"><img src="assets/applications-complete-2026-09-11/14-apparel-wide.png" alt="Худи футболка кепка"><div class="cap"><h4>Apparel Trio</h4><span>Ⅵ</span></div></div>
-          <div class="return-shot square no-stretch"><img src="assets/applications-complete-2026-09-11/15-merch-square.png" alt="Мерч квадрат"><div class="cap"><h4>Merch Square</h4><span>Ⅶ</span></div></div>
-        </div>
-      </div>
-    </div></section>
-
   <!-- ============================================
        Footer
   ============================================ -->
@@ -2824,6 +3303,29 @@
 
 </div>
 
+<script data-concepts-js>
+(() => {
+  const tabs = Array.from(document.querySelectorAll('.concept-tab'));
+  const cards = tabs.map((tab) => document.getElementById(tab.dataset.conceptTarget)).filter(Boolean);
+  if (!tabs.length || !cards.length) return;
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = document.getElementById(tab.dataset.conceptTarget);
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    tabs.forEach((tab) => tab.classList.toggle('is-active', tab.dataset.conceptTarget === visible.target.id));
+  }, { threshold: [0.28, 0.45, 0.62], rootMargin: '-12% 0px -48% 0px' });
+
+  cards.forEach((card) => io.observe(card));
+})();
+</script>
 <script data-neon-motion-js>
 (() => {
   const root = document.documentElement;
@@ -2951,5 +3453,32 @@
       window.open(url, '_blank', 'noopener');
     });
   });
+</script><script data-universal-image-zoom>
+(() => {
+  let overlay = document.querySelector('.image-zoom-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.className = 'image-zoom-overlay';
+    overlay.innerHTML = '<div class="image-zoom-frame"><button class="image-zoom-close" type="button" aria-label="Закрыть">×</button><img alt=""></div>';
+    document.body.appendChild(overlay);
+  }
+  const zoomImg = overlay.querySelector('img');
+  const close = () => overlay.classList.remove('open');
+  overlay.addEventListener('click', (event) => {
+    if (event.target === overlay || event.target.closest('.image-zoom-close')) close();
+  });
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') close();
+  });
+  document.addEventListener('click', (event) => {
+    const img = event.target.closest('img');
+    if (!img || img.closest('.image-zoom-overlay')) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+    zoomImg.src = new URL(img.getAttribute('src'), window.location.href).href;
+    zoomImg.alt = img.alt || '';
+    overlay.classList.add('open');
+  }, true);
+})();
 </script></body>
 </html>
